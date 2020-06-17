@@ -19,6 +19,14 @@ public class Solution {
             return a + b;
     }
 
+    public String altPairs(String str) {
+        String result = "";
+        for (int i = 1; i < str.length(); i = i + 2) {
+            result += str.charAt(i-1) + str.charAt(i);
+        }
+        return result;
+    }
+
 
 
 
