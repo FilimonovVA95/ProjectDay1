@@ -60,13 +60,13 @@ public class Solution {
         int matrix[] [] = new int[n][m];
 
         for (int i = 1; i <= n; i++) {
-            String nString[] = masString[1].split(" ");
+            String nString[] = masString[i].split(" ");
             for (int j = 0; j < m; j++)
                 matrix[i][j] = Integer.parseInt(nString[j]);
         }
 
-        for(int i = 0; i < k; i++) {
-            String kString[] = masString[2].split(" ");
+        for(int i = n + 1; i <= n + k; i++) {
+            String kString[] = masString[i].split(" ");
             String query = kString[0];
             int firstIndex = Integer.parseInt(kString[1]);
             int secondIndex = Integer.parseInt(kString[2]);
