@@ -12,6 +12,17 @@ public class Solution {
             return true;
     }
 
+    public int sumDouble(int a, int b) {
+        if (a == b)
+            return a*4;
+        else
+            return a + b;
+    }
+
+
+
+
+
 
 
 }
