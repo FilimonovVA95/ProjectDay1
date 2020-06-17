@@ -68,16 +68,16 @@ public class Solution {
         for(int i = n + 1; i <= n + k; i++) {
             String kString[] = masString[i].split(" ");
             String query = kString[0];
-            int firstIndex = Integer.parseInt(kString[1]);
-            int secondIndex = Integer.parseInt(kString[2]);
+            int firstIndex = Integer.parseInt(kString[1]) - 1;
+            int secondIndex = Integer.parseInt(kString[2]) - 1;
 
             switch (query) {
                 case ("c"):
                     int buff;
                     for (int j = 0; j < n; j++) {
-                        buff = matrix[j][firstIndex+1];
-                        matrix[j][firstIndex+1] = matrix[j][secondIndex+1];
-                        matrix[j][secondIndex+1] = buff;
+                        buff = matrix[j][firstIndex];
+                        matrix[j][firstIndex] = matrix[j][secondIndex];
+                        matrix[j][secondIndex] = buff;
                     }
 
                     break;
@@ -85,16 +85,16 @@ public class Solution {
                 case ("r"):
                     int buff1;
                     for (int j = 0; j < n; j++) {
-                        buff1 = matrix[firstIndex+1][j];
-                        matrix[firstIndex+1][j] = matrix[secondIndex+1][j];
-                        matrix[secondIndex+1][j] = buff1;
+                        buff1 = matrix[firstIndex][j];
+                        matrix[firstIndex][j] = matrix[secondIndex][j];
+                        matrix[secondIndex][j] = buff1;
                     }
 
                     break;
 
 
                 case ("g"):
-                    System.out.println(matrix[firstIndex+1][secondIndex+1]);
+                    System.out.println(matrix[firstIndex][secondIndex]);
 
                     break;
             }
