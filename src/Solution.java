@@ -1,3 +1,5 @@
+import java.sql.SQLOutput;
+
 public class Solution {
     public static void main(String[] args) {
 
@@ -45,12 +47,59 @@ public class Solution {
 
     }
 
+    public  static void hardTask(String str) {
+        String buf = str;
+        int n, m, k = 0;
+
+        String masString[] = str.split("/n");
+
+        String arg[] = masString[0].split(" ");
+        n = Integer.parseInt(arg[0]);
+        m = Integer.parseInt(arg[1]);
+        k = Integer.parseInt(arg[2]);
+        int matrix[] [] = new int[n][m];
+
+        for (int i = 1; i <= n; i++) {
+            String nString[] = masString[1].split(" ");
+            for (int j = 0; j < m; j++)
+                matrix[i][j] = Integer.parseInt(nString[j]);
+        }
+
+        for(int i = 0; i < k; i++) {
+            String kString[] = masString[2].split(" ");
+            String query = kString[0];
+            int firstIndex = Integer.parseInt(kString[1]);
+            int secondIndex = Integer.parseInt(kString[2]);
+
+            switch (query) {
+                case ("c"):
+                    int buff;
+                    for (int j = 0; j < n; j++) {
+                        buff = matrix[j][firstIndex+1];
+                        matrix[j][firstIndex+1] = matrix[j][secondIndex+1];
+                        matrix[j][secondIndex+1] = buff;
+                    }
+
+                    break;
+
+                case ("r"):
+                    int buff1;
+                    for (int j = 0; j < n; j++) {
+                        buff1 = matrix[firstIndex+1][j];
+                        matrix[firstIndex+1][j] = matrix[secondIndex+1][j];
+                        matrix[secondIndex+1][j] = buff1;
+                    }
+
+                    break;
 
 
+                case ("g"):
+                    System.out.println(matrix[firstIndex+1][secondIndex+1]);
 
+                    break;
+            }
+        }
 
-
-
-
+    }
 
 }
